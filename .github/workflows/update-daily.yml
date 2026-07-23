@@ -5,7 +5,12 @@ on:
     # 03:17 UTC daily -- after US/EU market close and after Tadawul's own close,
     # off the top of the hour to avoid the cron traffic spike.
     - cron: "17 3 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - "scripts/fetch_daily.py"
+      - ".github/workflows/update-daily.yml"
 
 permissions:
   contents: write
