@@ -11,7 +11,8 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..", "docs");
-const PORT = process.env.PORT ? Number(process.env.PORT) : 8080;
+const START_PORT = process.env.PORT ? Number(process.env.PORT) : 8080;
+const MAX_PORT_ATTEMPTS = 10;
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -60,6 +61,30 @@ const server = createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`Serving docs/ at http://localhost:${PORT}/`);
+let port = START_PORT;
+let attemptsLeft = MAX_PORT_ATTEMPTS;
+
+server.on("listening", () => {
+  console.log(`Serving docs/ at http://localhost:${port}/`);
 });
+
+server.on("error", (err) => {
+  if (err.code === "EADDRINUSE") {
+    if (attemptsLeft > 0) {
+      console.warn(`Port ${port} is already in use (probably another server still running) -- trying ${port + 1}...`);
+      port += 1;
+      attemptsLeft -= 1;
+      server.listen(port);
+      return;
+    }
+    console.error(
+      `\nCould not find a free port after ${MAX_PORT_ATTEMPTS} tries (last tried: ${port}).\n` +
+      `Something else is already listening on all of them. Either stop that process, or run on a` +
+      ` specific free port with:\n\n  PORT=3000 npm run serve\n`
+    );
+    process.exit(1);
+  }
+  throw err;
+});
+
+server.listen(port);
