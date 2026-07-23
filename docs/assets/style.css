@@ -126,7 +126,7 @@ h2{ font-family: var(--font-display); font-weight: 400; font-size: 26px; margin:
 .card{ background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
 
 /* ---------- Today panel ---------- */
-.today-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.today-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .today-card{ background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
 .today-card .label{ font-size: 12px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.05em; }
 .today-card .value{ font-family: var(--font-mono); font-size: 26px; font-weight: 700; margin-top: 6px; font-variant-numeric: tabular-nums; }

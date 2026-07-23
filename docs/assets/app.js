@@ -71,7 +71,7 @@
     }
     updatedEl.textContent = `Live indicators as of ${daily.date} (fetched ${new Date(daily.fetched_at_utc).toUTCString().replace(":00 GMT"," GMT")})`;
 
-    const order = ["brent", "wti", "tasi", "usdsar"];
+    const order = ["brent", "wti", "tasi"];
     grid.innerHTML = "";
     order.forEach((key) => {
       const ind = daily.indicators[key];

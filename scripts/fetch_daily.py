@@ -24,7 +24,11 @@ INDICATORS = {
     "brent":  {"symbol": "BZ=F",     "label": "Brent Crude Oil",              "unit": "USD/bbl"},
     "wti":    {"symbol": "CL=F",     "label": "WTI Crude Oil",                "unit": "USD/bbl"},
     "tasi":   {"symbol": "%5ETASI.SR", "label": "Tadawul All Share (TASI)",   "unit": "pts"},
-    "usdsar": {"symbol": "SAR=X",    "label": "USD / SAR",                   "unit": "SAR"},
+    # USD/SAR deliberately excluded: it's a hard SAMA peg (~3.75 since 1986),
+    # and Yahoo's SAR=X feed is thin/illiquid enough to show implausible
+    # multi-percent "swings" that are quote noise, not real currency moves --
+    # showing that as a live daily change would misrepresent a fixed peg as
+    # volatile. The site shows the peg as a static fact instead.
 }
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -35,7 +39,10 @@ HISTORY_CAP_DAYS = 3650  # ~10 years
 
 
 def fetch_quote(symbol):
-    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}?range=5d&interval=1d"
+    # range=2d (not 5d): Yahoo's chartPreviousClose is "the close before the
+    # first bar in the returned range", not a fixed "yesterday" field -- so a
+    # wider range silently reports a stale, multi-day-old previous close.
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}?range=2d&interval=1d"
     req = urllib.request.Request(url, headers=HEADERS)
     with urllib.request.urlopen(req, timeout=20) as resp:
         payload = json.load(resp)
