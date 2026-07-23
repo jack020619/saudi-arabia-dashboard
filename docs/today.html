@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Today's Indicators — Saudi Arabia Population &amp; Economy</title>
+<meta name="description" content="Live daily snapshot: Brent and WTI crude oil, and the Tadawul All Share Index, updated automatically once a day.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕌</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="topbar">
+      <div>
+        <p class="eyebrow">Saudi Arabia · right now</p>
+        <h1>Today's Indicators</h1>
+        <p class="dek">Saudi Arabia does not publish daily population or GDP figures — no country does. What genuinely updates daily are market prices tightly linked to the Saudi economy: the oil benchmarks that drive government revenue and the Tadawul stock index.</p>
+      </div>
+      <button class="theme-toggle" id="theme-toggle">☀ Light</button>
+    </div>
+    <nav class="sitenav">
+      <a href="index.html">Overview</a>
+      <a href="history.html">Past Years <span class="nav-sub">2010–2025</span></a>
+      <a href="this-year.html">This Year <span class="nav-sub this-year-label">2026</span></a>
+      <a href="today.html">Today</a>
+    </nav>
+    <div class="live-badge"><span class="live-dot"></span><span id="last-updated">Loading live indicators…</span></div>
+  </header>
+
+  <section id="today" style="padding-top:44px;">
+    <div class="today-grid" id="today-grid"></div>
+    <div class="card" style="margin-top:16px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+      <div>
+        <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-3);">USD / SAR</div>
+        <div style="font-family:var(--font-mono); font-size:20px; font-weight:700; margin-top:4px;">3.7500 <span style="font-size:12.5px; color:var(--ink-3); font-weight:400;">SAR — fixed, SAMA peg since 1986</span></div>
+      </div>
+      <p style="font-size:12.5px; color:var(--ink-3); max-width:46ch; margin:0;">Not live-tracked here: free FX feeds for this pair are thin/illiquid enough to show implausible multi-percent "swings" that are quote noise, not real moves — and the peg itself isn't meant to move.</p>
+    </div>
+    <p class="section-note" style="margin-top:24px;">A free GitHub Actions job fetches these once a day (no API key, no server) and commits the result — see <a href="this-year.html">This Year</a> for how each indicator has moved since tracking began, or <a href="history.html">Past Years</a> for population, cities and GDP back to 2010.</p>
+  </section>
+
+  <footer>
+    <p class="caveat">Source: Yahoo Finance public market data (Brent BZ=F, WTI CL=F, Tadawul ^TASI.SR). Full data sources and methodology for the historical charts are on the <a href="history.html">Past Years</a> page.</p>
+  </footer>
+
+</div>
+
+<div id="tooltip"></div>
+<script type="module" src="assets/today.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>This Year — Saudi Arabia Population &amp; Economy</title>
+<meta name="description" content="Brent, WTI and the Tadawul index plotted for every day tracked so far this year.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕌</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="topbar">
+      <div>
+        <p class="eyebrow">Saudi Arabia · <span class="this-year-label">2026</span> year-to-date</p>
+        <h1>This Year</h1>
+        <p class="dek">Every day tracked so far, plotted as a running trend rather than a single snapshot. The series starts the day this site went live — it isn't backfilled, so it's short at first and grows by one point every day.</p>
+      </div>
+      <button class="theme-toggle" id="theme-toggle">☀ Light</button>
+    </div>
+    <nav class="sitenav">
+      <a href="index.html">Overview</a>
+      <a href="history.html">Past Years <span class="nav-sub">2010–2025</span></a>
+      <a href="this-year.html">This Year <span class="nav-sub this-year-label">2026</span></a>
+      <a href="today.html">Today</a>
+    </nav>
+  </header>
+
+  <section style="padding-top:32px;">
+    <p class="start-note" id="start-note">Loading…</p>
+
+    <div class="chart-block">
+      <div class="section-head">
+        <p class="section-eyebrow">Brent Crude Oil</p>
+        <h2 style="font-size:20px;">USD per barrel</h2>
+      </div>
+      <div class="card">
+        <svg class="chart" id="chart-brent" viewBox="0 0 900 260" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="chart-summary" id="summary-brent"></div>
+        <button class="table-toggle" data-target="tbl-brent">View data as table ▾</button>
+        <div class="data-table" id="tbl-brent">
+          <table>
+            <thead><tr><th>Date</th><th>USD/bbl</th></tr></thead>
+            <tbody id="table-brent"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-block">
+      <div class="section-head">
+        <p class="section-eyebrow">WTI Crude Oil</p>
+        <h2 style="font-size:20px;">USD per barrel</h2>
+      </div>
+      <div class="card">
+        <svg class="chart" id="chart-wti" viewBox="0 0 900 260" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="chart-summary" id="summary-wti"></div>
+        <button class="table-toggle" data-target="tbl-wti">View data as table ▾</button>
+        <div class="data-table" id="tbl-wti">
+          <table>
+            <thead><tr><th>Date</th><th>USD/bbl</th></tr></thead>
+            <tbody id="table-wti"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-block">
+      <div class="section-head">
+        <p class="section-eyebrow">Tadawul All Share Index</p>
+        <h2 style="font-size:20px;">TASI, points</h2>
+      </div>
+      <div class="card">
+        <svg class="chart" id="chart-tasi" viewBox="0 0 900 260" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="chart-summary" id="summary-tasi"></div>
+        <button class="table-toggle" data-target="tbl-tasi">View data as table ▾</button>
+        <div class="data-table" id="tbl-tasi">
+          <table>
+            <thead><tr><th>Date</th><th>Points</th></tr></thead>
+            <tbody id="table-tasi"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="caveat">Source: Yahoo Finance public market data, fetched once daily. See <a href="today.html">Today</a> for the latest single reading, or <a href="history.html">Past Years</a> for population, cities and GDP back to 2010.</p>
+  </footer>
+
+</div>
+
+<div id="tooltip"></div>
+<script type="module" src="assets/this-year.js"></script>
+</body>
+</html>

@@ -100,6 +100,36 @@ h1{
 }
 .live-dot{ width:7px; height:7px; border-radius:50%; background: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
 
+/* ---------- Site nav ---------- */
+.sitenav{
+  display:flex; gap: 4px; margin-top: 24px; padding-top: 18px;
+  border-top: 1px solid var(--border); flex-wrap: wrap;
+}
+.sitenav a{
+  padding: 8px 14px; border-radius: 8px; font-size: 13.5px; color: var(--ink-2);
+  text-decoration: none; display:flex; align-items:baseline; gap:6px;
+}
+.sitenav a:hover{ background: var(--surface-2); color: var(--ink); }
+.sitenav a.active{ background: var(--ink); color: var(--page); font-weight: 600; }
+.sitenav .nav-sub{ font-size: 11px; font-family: var(--font-mono); opacity: 0.75; }
+
+/* ---------- Landing page cards ---------- */
+.landing-cards{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+.landing-card{
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 26px; text-decoration: none; color: inherit; display:flex; flex-direction:column;
+  gap: 10px; transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.landing-card:hover{ border-color: var(--accent); transform: translateY(-1px); }
+.landing-card .eyebrow2{
+  font-family: var(--font-mono); font-size: 11px; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--accent);
+}
+.landing-card h3{ font-family: var(--font-display); font-weight: 400; font-size: 23px; margin: 0; }
+.landing-card p{ font-size: 13.5px; color: var(--ink-2); margin: 0; line-height: 1.5; }
+.landing-card .cta{ font-size: 12.5px; color: var(--ink-3); margin-top: auto; padding-top: 8px; }
+.landing-card:hover .cta{ color: var(--accent); }
+
 /* ---------- KPI strip ---------- */
 .kpis{
   display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
@@ -229,6 +259,12 @@ footer li{ margin-bottom: 5px; }
 footer a:hover{ color: var(--ink); }
 .caveat{ font-size: 12.5px; color: var(--ink-3); max-width: 72ch; margin: 0 0 8px; }
 
+/* ---------- This Year page ---------- */
+.chart-block{ margin-bottom: 44px; }
+.chart-block:last-child{ margin-bottom: 0; }
+.chart-summary{ font-size: 13.5px; color: var(--ink-2); margin-top: 14px; }
+.start-note{ font-size: 13px; color: var(--ink-3); margin: -6px 0 24px; }
+
 @media (max-width: 900px){
   .today-grid{ grid-template-columns: repeat(2, 1fr); }
 }
@@ -238,6 +274,7 @@ footer a:hover{ color: var(--ink); }
   .v2030{ grid-template-columns: repeat(2, 1fr); }
   .city-row, .col-heads{ grid-template-columns: 100px 1fr 150px; gap:10px; }
   .region-row{ grid-template-columns: 100px 1fr 70px; gap:10px; }
+  .landing-cards{ grid-template-columns: 1fr; }
 }
 @media (max-width: 560px){
   .kpis{ grid-template-columns: 1fr 1fr; }

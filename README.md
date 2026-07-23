@@ -36,13 +36,32 @@ Population, city, region, faith and GDP-history figures are updated manually,
 by editing the JSON files in `docs/data/`, whenever GASTAT/World Bank publish
 a new release (at most a few times a year).
 
+## Pages
+
+The site is split by timescale rather than one long scroll, since each
+resolution genuinely comes from a different source and update cadence:
+
+| Page | Content | Update cadence |
+|---|---|---|
+| `index.html` | Overview + KPI strip, links to the other three | manual |
+| `history.html` | Population, cities/regions, faith, GDP — 2010–2025 | manual, a few times a year |
+| `this-year.html` | Brent/WTI/TASI plotted day-by-day, year-to-date | automatic, daily |
+| `today.html` | Latest single reading for each daily indicator | automatic, daily |
+
 ## Project layout
 
 ```
 docs/                       ← GitHub Pages root
-  index.html                ← the page
-  assets/style.css          ← design tokens + layout (light & dark)
-  assets/app.js             ← fetches the JSON below and draws every chart
+  index.html                ← overview / landing page
+  history.html              ← past-years charts (population, cities, faith, GDP)
+  this-year.html            ← year-to-date daily trend charts
+  today.html                ← today's live snapshot
+  assets/
+    style.css               ← design tokens + layout (light & dark)
+    common.js                ← shared: nav, theme toggle, tooltip, loadJSON, chart helpers
+    history.js                ← renders history.html's charts
+    this-year.js               ← renders this-year.html's charts
+    today.js                    ← renders today.html's stat cards
   data/
     population.json         ← 2010–2024 annual population by nationality
     cities.json              ← 2010 & 2022 census, top 10 cities
@@ -56,6 +75,9 @@ scripts/serve.mjs            ← local static server, for previewing docs/ here
 .github/workflows/update-daily.yml  ← the free daily cron
 package.json                 ← npm scripts (see below)
 ```
+
+The per-page scripts are plain ES modules (`<script type="module">`) that
+import shared helpers from `common.js` — no bundler, no build step.
 
 Everything runs on Node's standard library (`fetch`, `fs/promises`, `http`) —
 `npm install` has nothing to install, so there's no dependency tree to break
@@ -87,6 +109,8 @@ build step.
   reset the series.
 - Religious composition is a third-party demographic estimate, not a census
   fact — Saudi Arabia's census does not ask about religion.
-- The "Today" panel is the only truly daily-resolution data on the page; the
-  historical charts intentionally stay at their real annual/quarterly
+- `today.html` and `this-year.html` are the only truly daily-resolution data
+  on the site; `history.html` intentionally stays at its real annual/quarterly
   resolution rather than being interpolated into fake monthly points.
+- `this-year.html`'s series isn't backfilled — it starts the day the daily
+  fetch job first ran and grows by one point per day after that.
