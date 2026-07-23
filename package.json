@@ -1,0 +1,14 @@
+{
+  "name": "saudi-arabia-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Population, cities, faith and economic development in Saudi Arabia, 2010-present, with a free daily-updating market snapshot.",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "fetch:daily": "node scripts/fetch-daily.mjs",
+    "serve": "node scripts/serve.mjs"
+  }
+}
