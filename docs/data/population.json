@@ -1,0 +1,17 @@
+[
+  {"year": 2010, "saudi": 14046164, "nonSaudi": 9932323, "total": 23978487},
+  {"year": 2011, "saudi": 14342129, "nonSaudi": 10749738, "total": 25091867},
+  {"year": 2012, "saudi": 14683546, "nonSaudi": 11485315, "total": 26168861},
+  {"year": 2013, "saudi": 15079401, "nonSaudi": 12544603, "total": 27624004},
+  {"year": 2014, "saudi": 15535036, "nonSaudi": 12774237, "total": 28309273},
+  {"year": 2015, "saudi": 15968071, "nonSaudi": 13848311, "total": 29816382},
+  {"year": 2016, "saudi": 16355312, "nonSaudi": 14598886, "total": 30954198},
+  {"year": 2017, "saudi": 16696980, "nonSaudi": 14280375, "total": 30977355},
+  {"year": 2018, "saudi": 17085636, "nonSaudi": 13110645, "total": 30196281},
+  {"year": 2019, "saudi": 17507171, "nonSaudi": 12556628, "total": 30063799},
+  {"year": 2020, "saudi": 17978587, "nonSaudi": 13573923, "total": 31552510},
+  {"year": 2021, "saudi": 18380669, "nonSaudi": 12403714, "total": 30784383},
+  {"year": 2022, "saudi": 18792262, "nonSaudi": 13382962, "total": 32175224},
+  {"year": 2023, "saudi": 19245929, "nonSaudi": 14456802, "total": 33702731},
+  {"year": 2024, "saudi": 19635258, "nonSaudi": 15665022, "total": 35300280}
+]

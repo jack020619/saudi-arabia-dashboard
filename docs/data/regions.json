@@ -1,0 +1,15 @@
+[
+  {"name": "Riyadh", "saudi": 4439210, "nonSaudi": 4152538},
+  {"name": "Makkah", "saudi": 4153723, "nonSaudi": 3867740},
+  {"name": "Eastern Region", "saudi": 2949854, "nonSaudi": 2175400},
+  {"name": "Madinah", "saudi": 1352146, "nonSaudi": 785837},
+  {"name": "Aseer", "saudi": 1444688, "nonSaudi": 579597},
+  {"name": "Qassim", "saudi": 926490, "nonSaudi": 409689},
+  {"name": "Jazan", "saudi": 1002779, "nonSaudi": 402218},
+  {"name": "Tabuk", "saudi": 637601, "nonSaudi": 248435},
+  {"name": "Hail", "saudi": 527885, "nonSaudi": 218521},
+  {"name": "Najran", "saudi": 394976, "nonSaudi": 197324},
+  {"name": "Al Jawf", "saudi": 440264, "nonSaudi": 155558},
+  {"name": "Northern Borders", "saudi": 271358, "nonSaudi": 102219},
+  {"name": "Al Bahah", "saudi": 251288, "nonSaudi": 87886}
+]

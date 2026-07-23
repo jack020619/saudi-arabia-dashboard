@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saudi Arabia, 2010–Present: Population &amp; Economy</title>
+<meta name="description" content="Population, cities, faith and economic development in Saudi Arabia, 2010 to present, with a daily-updating economic snapshot.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕌</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="topbar">
+      <div>
+        <p class="eyebrow">Saudi Arabia · 2010–present</p>
+        <h1>Population, Faith &amp; the Post-Oil Economy</h1>
+        <p class="dek">The Kingdom's population grew <b>47%</b> in fourteen years, driven mostly by foreign labor migration that rises and falls with domestic labor policy — while the economy has begun, measurably, to grow around oil rather than because of it.</p>
+      </div>
+      <button class="theme-toggle" id="theme-toggle">☀ Light</button>
+    </div>
+    <div class="live-badge"><span class="live-dot"></span><span id="last-updated">Loading live indicators…</span></div>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi"><div class="label">Population, 2024</div><div class="value">35.30M</div><div class="delta good">+47.2% since 2010</div></div>
+    <div class="kpi"><div class="label">Non-Saudi share, 2024</div><div class="value">44.4%</div><div class="delta">up from 41.4% in 2010</div></div>
+    <div class="kpi"><div class="label">Riyadh (city, 2022)</div><div class="value">6.92M</div><div class="delta good">+33.5% since 2010</div></div>
+    <div class="kpi"><div class="label">Non-oil share of GDP</div><div class="value">~54%</div><div class="delta">record high, per GASTAT</div></div>
+    <div class="kpi"><div class="label">Real GDP growth, 2025</div><div class="value">+4.5%</div><div class="delta good">accel. from +2.7% in 2024</div></div>
+  </div>
+
+  <!-- ================= TODAY ================= -->
+  <section id="today">
+    <div class="section-head">
+      <p class="section-eyebrow">Today — updates automatically, daily</p>
+      <h2>This year, right now</h2>
+      <p class="section-note">Saudi Arabia does not publish daily population or GDP figures — no country does. What genuinely updates daily are market prices tightly linked to the Saudi economy: the oil benchmarks that drive government revenue, the Tadawul stock index, and the Saudi riyal's dollar peg. A GitHub Actions job fetches these every day at no cost and republishes this page automatically.</p>
+    </div>
+    <div class="today-grid" id="today-grid"></div>
+  </section>
+
+  <!-- ================= POPULATION ================= -->
+  <section id="population">
+    <div class="section-head">
+      <p class="section-eyebrow">01 — Population</p>
+      <h2>Growth tracks migration policy, not birth rate</h2>
+      <p class="section-note">Mid-year population by nationality, 2010–2024. The 2016–2019 dip is almost entirely non-Saudi: Nitaqat "Saudization" quotas and a new expatriate dependent levy pushed foreign residents to leave faster than new ones arrived. GASTAT had not yet published a mid-2025 estimate at time of writing.</p>
+    </div>
+    <div class="card">
+      <div class="legend">
+        <span class="item"><span class="swatch" style="background:var(--saudi)"></span>Saudi nationals</span>
+        <span class="item"><span class="swatch" style="background:var(--nonsaudi)"></span>Non-Saudi residents</span>
+      </div>
+      <svg class="chart" id="pop-chart" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="annot"><b>2017–2019</b> non-Saudi population fell from 14.60M to 12.56M (–14%) amid Saudization drives, before rebounding as construction and giga-project hiring resumed.</div>
+      <button class="table-toggle" data-target="pop-table">View data as table ▾</button>
+      <div class="data-table" id="pop-table">
+        <table>
+          <caption>Source: GASTAT, compiled via GLMM (Gulf Labour Markets, Migration and Population programme)</caption>
+          <thead><tr><th>Year</th><th>Saudi nationals</th><th>Non-Saudi residents</th><th>Total</th><th>Non-Saudi share</th></tr></thead>
+          <tbody id="pop-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CITIES & REGIONS ================= -->
+  <section id="cities">
+    <div class="section-head">
+      <p class="section-eyebrow">02 — Cities &amp; regions</p>
+      <h2>Where the growth actually lands</h2>
+      <p class="section-note">Saudi Arabia has run two full population censuses this period — 2010 and 2022 — so city-level figures exist only at those two points; there is no official annual series per city. Ranked by 2022 population.</p>
+    </div>
+    <div class="card">
+      <div class="col-heads"><span>City</span><span>2010 → 2022 (of 7.2M scale)</span><span>Population &amp; CAGR</span></div>
+      <div id="city-rows"></div>
+      <div class="legend" style="margin-top:16px;margin-bottom:0;">
+        <span class="item"><span class="swatch ring"></span>2010 census</span>
+        <span class="item"><span class="swatch dot"></span>2022 census</span>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:44px;">
+      <h2 style="font-size:20px;">Foreign-resident share by region, 2022</h2>
+      <p class="section-note">Riyadh and Makkah regions — home to Riyadh, Jeddah, Mecca and Taif — carry the highest non-Saudi shares, close to half their population. The thirteen regions hold 32.18M people between them.</p>
+    </div>
+    <div class="card">
+      <div id="region-rows"></div>
+      <div class="legend" style="margin-top:16px;margin-bottom:0;">
+        <span class="item"><span class="swatch" style="background:var(--saudi)"></span>Saudi nationals</span>
+        <span class="item"><span class="swatch" style="background:var(--nonsaudi)"></span>Non-Saudi residents</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAITH ================= -->
+  <section id="faith">
+    <div class="section-head">
+      <p class="section-eyebrow">03 — Faith</p>
+      <h2>Overwhelmingly Muslim — the exceptions are almost all guest workers</h2>
+      <p class="section-note">Saudi Arabia's census does not ask about religion, so no official breakdown exists. The figures below are third-party demographic estimates (Pew Research / ARDA-style modeling), shown as an approximate picture rather than a census fact.</p>
+    </div>
+    <div class="card">
+      <div class="faith-grid">
+        <div class="big-stat"><span class="num">~93%</span><span class="cap">of residents are estimated to be Muslim</span></div>
+        <div>
+          <div class="comp-bar" id="faith-bar"></div>
+          <div class="comp-legend" id="faith-legend"></div>
+        </div>
+      </div>
+      <div class="annot">Among Saudi citizens specifically, an estimated 85–90% are Sunni and 10–15% Shia (mostly Twelver, concentrated in the Eastern Province), plus small Ismaili and Zaydi communities. Nearly all Christians, Hindus and Buddhists in the Kingdom are foreign workers on residency permits, not citizens — Hindu residents in particular track closely with the South Asian labor migration visible in the regional chart above.</div>
+    </div>
+  </section>
+
+  <!-- ================= ECONOMY ================= -->
+  <section id="economy">
+    <div class="section-head">
+      <p class="section-eyebrow">04 — Economic development</p>
+      <h2>From an oil swing-producer to a managed diversification</h2>
+      <p class="section-note">Annual real GDP growth, 2010–2025. Swings before 2021 track oil output and price almost one-for-one; growth since 2023 leans increasingly on non-oil activity — construction, tourism and logistics — a deliberate Vision 2030 target rather than a market accident.</p>
+    </div>
+    <div class="card">
+      <div class="legend">
+        <span class="item"><span class="swatch" style="background:var(--pos)"></span>Growth</span>
+        <span class="item"><span class="swatch" style="background:var(--neg)"></span>Contraction</span>
+      </div>
+      <svg class="chart" id="gdp-chart" viewBox="0 0 900 340" preserveAspectRatio="xMidYMid meet"></svg>
+      <button class="table-toggle" data-target="gdp-table">View data as table ▾</button>
+      <div class="data-table" id="gdp-table">
+        <table>
+          <caption>2010–2024: World Bank national accounts data (NY.GDP.MKTP.KD.ZG). 2025: GASTAT preliminary national accounts — a different release, shown for continuity.</caption>
+          <thead><tr><th>Year</th><th>Real GDP growth</th></tr></thead>
+          <tbody id="gdp-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="v2030">
+      <div class="card"><div class="value">122M</div><div class="label">inbound visitors in 2025 — the original 2030 target (100M) was reached seven years early; the goal was raised to 150M</div></div>
+      <div class="card"><div class="value">+44%</div><div class="label">YoY growth in foreign direct investment inflows, Q1 2025 (SAR 22.2bn)</div></div>
+      <div class="card"><div class="value">100K</div><div class="label">jobs created by the NEOM giga-project alone, alongside ~$10bn in FDI it has attracted</div></div>
+      <div class="card"><div class="value">~85%</div><div class="label">of Vision 2030 initiatives officially reported complete or on track, entering a 2025–2030 "full delivery" phase</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Sources</h3>
+    <ol>
+      <li>General Authority for Statistics, Saudi Arabia (GASTAT) — Census 2010 &amp; 2022, mid-year population estimates, national accounts / GDP releases.</li>
+      <li>Gulf Labour Markets, Migration and Population Programme (GLMM), gulfmigration.grc.net — compiled tabulations of GASTAT population-by-nationality and by-region data, 2010–2024.</li>
+      <li>World Bank national accounts data, indicator NY.GDP.MKTP.KD.ZG, 2010–2024.</li>
+      <li>Trading Economics &amp; GASTAT national accounts releases, 2025 preliminary growth figures.</li>
+      <li>Third-party religious demographic estimates (Pew Research Center / Association of Religion Data Archives methodology, as aggregated by public demographic reference sites) — not derived from an official census.</li>
+      <li>Vision 2030 progress figures: Saudi state media (SPA), GASTAT quarterly releases, and 2025 press coverage of tourism, FDI and giga-project statistics.</li>
+      <li>Daily indicators: Yahoo Finance public market data (Brent BZ=F, WTI CL=F, Tadawul ^TASI.SR, USD/SAR SAR=X) — fetched automatically once per day, free, no API key.</li>
+    </ol>
+    <p class="caveat"><b>Caveats worth keeping in mind:</b> city-level population is only ever as fresh as the last census (2022) — there is no official annual city series. Regional (not city) breakdowns are annual through 2022 only, since the 2022 census reset the series. Religion is modeled, not measured. Historical population/GDP charts above are annual/quarterly — the true official resolution — deliberately not interpolated into fake monthly points. The "Today" panel above is the only genuinely daily-resolution data on this page.</p>
+  </footer>
+
+</div>
+
+<div id="tooltip"></div>
+<script src="assets/app.js"></script>
+</body>
+</html>
