@@ -1,14 +1,14 @@
 {
-  "date": "2026-08-15",
-  "fetched_at_utc": "2026-08-15T03:55:03Z",
+  "date": "2026-08-16",
+  "fetched_at_utc": "2026-08-16T03:59:56Z",
   "indicators": {
     "brent": {
       "label": "Brent Crude Oil",
       "unit": "USD/bbl",
-      "value": 88.59,
+      "value": 88.52,
       "prev_close": 87.07,
-      "change": 1.52,
-      "change_pct": 1.746
+      "change": 1.45,
+      "change_pct": 1.665
     },
     "wti": {
       "label": "WTI Crude Oil",
