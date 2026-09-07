@@ -1,6 +1,6 @@
 {
-  "date": "2026-09-06",
-  "fetched_at_utc": "2026-09-06T07:55:15Z",
+  "date": "2026-09-07",
+  "fetched_at_utc": "2026-09-07T08:19:38Z",
   "indicators": {
     "brent": {
       "label": "Brent Crude Oil",
@@ -21,10 +21,10 @@
     "tasi": {
       "label": "Tadawul All Share (TASI)",
       "unit": "pts",
-      "value": 11071.25,
-      "prev_close": 11032.91,
-      "change": 38.34,
-      "change_pct": 0.348
+      "value": 11076.64,
+      "prev_close": 11068.65,
+      "change": 7.99,
+      "change_pct": 0.072
     }
   }
 }
