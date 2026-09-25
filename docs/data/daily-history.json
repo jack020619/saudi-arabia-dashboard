@@ -1918,5 +1918,35 @@
         "change_pct": -0.144
       }
     }
+  },
+  {
+    "date": "2026-09-25",
+    "fetched_at_utc": "2026-09-25T08:50:31Z",
+    "indicators": {
+      "brent": {
+        "label": "Brent Crude Oil",
+        "unit": "USD/bbl",
+        "value": 99.21,
+        "prev_close": 106.6,
+        "change": -7.39,
+        "change_pct": -6.932
+      },
+      "wti": {
+        "label": "WTI Crude Oil",
+        "unit": "USD/bbl",
+        "value": 93.36,
+        "prev_close": 94.61,
+        "change": -1.25,
+        "change_pct": -1.321
+      },
+      "tasi": {
+        "label": "Tadawul All Share (TASI)",
+        "unit": "pts",
+        "value": 10598.88,
+        "prev_close": 10680.61,
+        "change": -81.73,
+        "change_pct": -0.765
+      }
+    }
   }
 ]
